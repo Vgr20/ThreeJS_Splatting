@@ -1,35 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as GaussianSplats3D from '@mkkellogg/gaussian-splats-3d';
+import * as THREE from 'three';
+import { useEffect } from 'react';
+import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls';
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    // Step 1: Initialize viewer
+    const renderWidth = window.innerWidth;
+    const renderHeight = window.innerHeight;
+    const rootElement = document.createElement('div');
+    rootElement.style.width = renderWidth + 'px';
+    rootElement.style.height = renderHeight + 'px';
+    document.body.appendChild(rootElement);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const camera = new THREE.PerspectiveCamera(65, renderWidth / renderHeight, 0.1, 500);
+    camera.position.copy(new THREE.Vector3().fromArray([-0.15829, -0.08684, 0.94800]));
+    camera.up = new THREE.Vector3().fromArray([0, 1,0]).normalize();
+    camera.lookAt(new THREE.Vector3().fromArray([-1.36147, 0.01385, -1.93057]));
+    
+    const viewer = new GaussianSplats3D.Viewer({
+      // cameraUp: [0, 1, 0],
+      useBuiltInControls: false,
+      // initialCameraPosition: [	-0.15829, -0.08684, 0.94800],
+      // initialCameraLookAt: [-1.36147, 0.01385, -1.93057],
+      camera: camera,
+    });
+
+    // Step 2: Scene load
+    viewer
+      .addSplatScene('src\\splats\\truck.ksplat', {
+        splatAlphaRemovalThreshold: 5,
+        showLoadingUI: true,
+        position: [0, 0, 0],
+        rotation: [1, 0, 0, 0],
+        scale: [1, 1, 1],
+      })
+      .then(() => {
+        const camera = viewer.camera;
+        const domElement = viewer.renderer.domElement;
+
+        // Step 3: Add PointerLockControls
+        const controls = new PointerLockControls(camera, domElement);
+        domElement.addEventListener('click', () => controls.lock());
+        viewer.renderer.domElement.style.cursor = 'pointer';
+
+        // Step 4: WASD Movement
+        const keys: Record<string, boolean> = {};
+        const velocity = new THREE.Vector3();
+        const moveSpeed = 0.01;
+
+        document.addEventListener('keydown', (e) => (keys[e.key.toLowerCase()] = true));
+        document.addEventListener('keyup', (e) => (keys[e.key.toLowerCase()] = false));
+
+        // Step 5: Animate loop using viewer.start()
+        function animate() {
+          if (controls.isLocked) {
+            // const direction = new THREE.Vector3();
+            const right = new THREE.Vector3();
+            const forward = new THREE.Vector3();
+            camera.getWorldDirection(forward);
+            forward.y = 0;
+            forward.normalize();
+            right.crossVectors(camera.up, forward).normalize();
+
+            velocity.set(0, 0, 0);
+            if (keys['w']) velocity.add(forward);
+            if (keys['s']) velocity.sub(forward);
+            if (keys['a']) velocity.add(right);
+            if (keys['d']) velocity.sub(right);
+
+            velocity.multiplyScalar(moveSpeed);
+            controls.getObject().position.add(velocity);
+          }
+
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+        requestAnimationFrame(function update() {
+          viewer.update();
+          viewer.render();
+          requestAnimationFrame(update);
+        });
+      });
+  }, []);
+
+  return null;
 }
 
-export default App
+export default App;
