@@ -54,7 +54,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   }, []);
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden ">
       <video
         ref={videoRef}
         className="w-full"

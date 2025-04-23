@@ -1,4 +1,9 @@
+import React from "react";
+import InstructionModal from "./instructions";
+import ComingSoonModal from "./comingsoon";
+
 export default function Navbar() {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
   return (
     <div className="min-s-screen">
       <div className="antialiased bg-gray-400 dark-mode:bg-gray-900">
@@ -18,26 +23,64 @@ export default function Navbar() {
               className={`flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row`}
             >
               <a
-                className="px-4 py-2 mt-2 text-m font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                className="cursor-pointer px-4 py-2 mt-2 text-m font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                 href="#"
+                onClick={(e) => {
+                  e.preventDefault(); // Prevents the jump to top
+                  window.scrollBy({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                  });
+                }}
               >
                 Explore
               </a>
               <a
                 className="px-4 py-2 mt-2 text-m font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                onClick={() => setIsModalOpen(true)}
                 href="#"
               >
                 Guide
               </a>
+              <InstructionModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+              >
+                <button
+                  className="mt-4 px-4 py-2 bg-cyan-600 text-white rounded-lg"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Close
+                </button>
+              </InstructionModal>
               <a
                 className="px-4 py-2 mt-2 text-m font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                onClick={() => setIsModalOpen(true)}
                 href="#"
               >
-                Try yours
+                Try Yours
               </a>
+              <ComingSoonModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+              >
+                <button
+                  className="mt-4 px-4 py-2 bg-cyan-600 text-white rounded-lg"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Close
+                </button>
+              </ComingSoonModal>
               <a
                 className="px-4 py-2 mt-2 text-m font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                 href="#"
+                onClick={(e) => {
+                  e.preventDefault(); // Prevents the jump to top
+                  window.scrollBy({
+                    top: window.innerHeight * 3,
+                    behavior: "smooth",
+                  });
+                }}
               >
                 Contact Us
               </a>

@@ -16,7 +16,7 @@ export default function Home() {
       imageSrc: "src/assets/thumbnails/entc_outdoor.JPG", // Replace with your actual image path
       imageOnRight: true,
       buttonText: "View Prototype",
-      buttonLink: "#",
+      buttonLink: "/viewer_entc_outdoor",
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ export default function Home() {
       imageSrc: "src/assets/thumbnails/entc_lobby.JPG", // Replace with your actual image path
       imageOnRight: false,
       buttonText: "View Prototype",
-      buttonLink: "#",
+      buttonLink: "/viewer_entc_lobby",
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export default function Home() {
       imageSrc: "src/assets/thumbnails/mobitel_lab.JPG", // Replace with your actual image path
       imageOnRight: true,
       buttonText: "View Prototype",
-      buttonLink: "#",
+      buttonLink: "/viewer_mobitel_lab",
     },
     // Add more cards as needed
   ];

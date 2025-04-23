@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * FancyGreeting Component
@@ -91,6 +91,9 @@ const FancyGreeting = () => {
 
         {/* CTA button with animation */}
         <button
+          onClick={() =>
+            window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
+          }
           className={`px-8 py-3 bg-cyan-600 text-white rounded-full font-semibold
             hover:bg-cyan-800 transform hover:scale-105 active:scale-95
             transition-all duration-500 ease-out
