@@ -3,7 +3,10 @@ import InstructionModal from "./instructions";
 import ComingSoonModal from "./comingsoon";
 
 export default function Navbar() {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [isInstructionModalOpen, setIsInstructionModalOpen] =
+    React.useState(false);
+  const [isComingSoonModalOpen, setIsComingSoonModalOpen] =
+    React.useState(false);
   return (
     <div className="min-s-screen">
       <div className="antialiased bg-gray-400 dark-mode:bg-gray-900">
@@ -37,36 +40,36 @@ export default function Navbar() {
               </a>
               <a
                 className="px-4 py-2 mt-2 text-m font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setIsInstructionModalOpen(true)}
                 href="#"
               >
                 Guide
               </a>
               <InstructionModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
+                isOpen={isInstructionModalOpen}
+                onClose={() => setIsInstructionModalOpen(false)}
               >
                 <button
                   className="mt-4 px-4 py-2 bg-cyan-600 text-white rounded-lg"
-                  onClick={() => setIsModalOpen(false)}
+                  onClick={() => setIsInstructionModalOpen(false)}
                 >
                   Close
                 </button>
               </InstructionModal>
               <a
                 className="px-4 py-2 mt-2 text-m font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setIsComingSoonModalOpen(true)}
                 href="#"
               >
                 Try Yours
               </a>
               <ComingSoonModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
+                isOpen={isComingSoonModalOpen}
+                onClose={() => setIsComingSoonModalOpen(false)}
               >
                 <button
                   className="mt-4 px-4 py-2 bg-cyan-600 text-white rounded-lg"
-                  onClick={() => setIsModalOpen(false)}
+                  onClick={() => setIsComingSoonModalOpen(false)}
                 >
                   Close
                 </button>
