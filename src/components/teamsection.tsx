@@ -15,22 +15,22 @@ export default function TeamSection() {
     {
       name: "Vishagar Arunan",
       role: "Team Lead",
-      image: "src/assets/team_members/vgr.png",
+      image: "/src/assets/team_members/vgr.png",
     },
     {
       name: "Saeedha Nazar",
       role: "XR Developer",
-      image: "src/assets/team_members/sae.png",
+      image: "/src/assets/team_members/sae.png",
     },
     {
       name: "Hashiru Pramuditha",
       role: "Software Developer",
-      image: "src/assets/team_members/hash.png",
+      image: "/src/assets/team_members/hash.png",
     },
     {
       name: "Vinasirajan Viruthshaan",
       role: "Research Analyst",
-      image: "src/assets/team_members/viru.png",
+      image: "/src/assets/team_members/viru.png",
     },
   ];
 

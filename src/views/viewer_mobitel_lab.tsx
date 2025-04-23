@@ -40,7 +40,7 @@ function ViewerMobitelLab() {
 
     // Step 2: Scene load
     viewer
-      .addSplatScene("src/splats/mobitel_lab.ksplat", {
+      .addSplatScene("/src/splats/mobitel_lab.ksplat", {
         splatAlphaRemovalThreshold: 5,
         showLoadingUI: true,
         position: [0, 0, 0],

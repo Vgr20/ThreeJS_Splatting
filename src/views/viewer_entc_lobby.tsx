@@ -40,7 +40,7 @@ function ViewerEntcLobby() {
 
     // Step 2: Scene load
     viewer
-      .addSplatScene("src/splats/entc_lobby.ksplat", {
+      .addSplatScene("/src/splats/entc_lobby.ksplat", {
         splatAlphaRemovalThreshold: 5,
         showLoadingUI: true,
         position: [0, 0, 0],
