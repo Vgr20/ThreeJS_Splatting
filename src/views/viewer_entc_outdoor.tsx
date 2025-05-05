@@ -40,7 +40,7 @@ function ViewerEntcOutdoor() {
 
     // Step 2: Scene load
     viewer
-      .addSplatScene("/src/splats/entc_outdoor.ksplat", {
+      .addSplatScene("/splats/entc_outdoor.ksplat", {
         splatAlphaRemovalThreshold: 5,
         showLoadingUI: true,
         position: [0, 0, 0],
