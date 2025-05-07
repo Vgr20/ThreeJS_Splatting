@@ -32,7 +32,7 @@ function ViewerEntcLobby() {
 
     const viewer = new GaussianSplats3D.Viewer({
       cameraUp: [0, 1, 0],
-      useBuiltInControls: false,
+      useBuiltInControls: true,
       camera: camera,
       // Pass the container element instead of letting the viewer create one
       rootElement: rootElement,

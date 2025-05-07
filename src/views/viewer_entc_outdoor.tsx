@@ -32,10 +32,11 @@ function ViewerEntcOutdoor() {
 
     const viewer = new GaussianSplats3D.Viewer({
       cameraUp: [0, 1, 0],
-      useBuiltInControls: true,
+      useBuiltInControls: false,
       camera: camera,
       // Pass the container element instead of letting the viewer create one
       rootElement: rootElement,
+      infoPanel: true,
     });
 
     // Step 2: Scene load
