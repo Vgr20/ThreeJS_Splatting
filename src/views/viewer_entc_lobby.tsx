@@ -149,6 +149,7 @@ const ViewerEntcLobby = () => {
       .addSplatScene(path, {
         scale: [1.0, 1.0, 1.0],
         position: [0, 0, 0],
+        rotation: [Math.PI, 0, 0],
       })
       .then(() => {
         viewer.start();
