@@ -47,9 +47,6 @@ function ViewerEntcLobby() {
         rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],
         progressiveLoad: true,
-        sceneRevealMode: "Instant",
-        sharedMemoryForWorkers: false,
-        gpuAcceleratedSort: false,
       })
       .then(() => {
         const camera = viewer.camera;
