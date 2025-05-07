@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./views/home";
 import ViewerEntcOutdoor from "./views/viewer_entc_outdoor";
 import ViewerEntcLobby from "./views/viewer_entc_lobby";

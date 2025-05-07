@@ -42,10 +42,11 @@ function ViewerEntcLobby() {
     viewer
       .addSplatScene("/splats/entc_lobby.ksplat", {
         splatAlphaRemovalThreshold: 5,
-        showLoadingUI: true,
+        showLoadingUI: false,
         position: [0, 0, 0],
         rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],
+        progressiveLoad: true,
       })
       .then(() => {
         const camera = viewer.camera;
