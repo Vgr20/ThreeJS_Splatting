@@ -128,9 +128,8 @@
 // export default ViewerEntcLobby;
 
 // ViewerEntcLobby.jsx
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
-import * as THREE from "three";
 
 const ViewerEntcLobby = () => {
   const containerRef = useRef(null);
