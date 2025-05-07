@@ -32,7 +32,7 @@ function ViewerEntcOutdoor() {
 
     const viewer = new GaussianSplats3D.Viewer({
       cameraUp: [0, 1, 0],
-      useBuiltInControls: false,
+      useBuiltInControls: true,
       camera: camera,
       // Pass the container element instead of letting the viewer create one
       rootElement: rootElement,
@@ -42,7 +42,7 @@ function ViewerEntcOutdoor() {
     viewer
       .addSplatScene("/splats/entc_outdoor.ksplat", {
         splatAlphaRemovalThreshold: 5,
-        showLoadingUI: true,
+        showLoadingUI: false,
         position: [0, 0, 0],
         rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],

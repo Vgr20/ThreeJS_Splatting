@@ -47,7 +47,7 @@ function ViewerEntcLobby() {
         rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],
         progressiveLoad: true,
-        webXRMode: GaussianSplats3D.WebXRMode.VR,
+        webXRMode: GaussianSplats3D.WebXRMode.AR,
         webXRSessionInit: {},
       })
       .then(() => {
