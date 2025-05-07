@@ -36,6 +36,7 @@ function ViewerEntcLobby() {
       camera: camera,
       // Pass the container element instead of letting the viewer create one
       rootElement: rootElement,
+      webXRMode: GaussianSplats3D.WebXRMode.AR,
     });
 
     // Step 2: Scene load
@@ -47,7 +48,6 @@ function ViewerEntcLobby() {
         rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],
         progressiveLoad: true,
-        webXRMode: GaussianSplats3D.WebXRMode.AR,
         webXRSessionInit: {},
       })
       .then(() => {
