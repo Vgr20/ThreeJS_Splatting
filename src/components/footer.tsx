@@ -14,7 +14,7 @@ export default function Footer() {
             </p>
             <div className="mt-4">
               <img
-                src="src/assets/fetchseed_logo.png" // Replace with your actual logo path
+                src="fetchseed_logo.png" // Replace with your actual logo path
                 alt="Company Logo"
                 className="h-20"
               />
