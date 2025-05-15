@@ -42,7 +42,7 @@ function ViewerGaneshism() {
     viewer
       .addSplatScene("/splats/ganeshism.splat", {
         splatAlphaRemovalThreshold: 5,
-        showLoadingUI: false,
+        showLoadingUI: true,
         position: [0, 0, 0],
         rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],
