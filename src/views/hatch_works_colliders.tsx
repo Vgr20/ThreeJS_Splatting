@@ -12,26 +12,26 @@ export function createBoxColliders(): ColliderDefinition[] {
 
   const definitions = [
     {
-      size: new THREE.Vector3(0.2, 0.2, 6.0),
-      position: new THREE.Vector3(5.6, -0.7, 1.0),
+      size: new THREE.Vector3(0.2, 0.5, 6.0),
+      position: new THREE.Vector3(5.0, -0.7, 1.0),
       rotation: new THREE.Euler(Math.PI / 50, -Math.PI / 40, 0),
       color: 0xff0000,
     },
     {
-      size: new THREE.Vector3(0.2, 0.5, 12),
-      position: new THREE.Vector3(0, -0.8, -1.6),
+      size: new THREE.Vector3(0.2, 0.7, 12),
+      position: new THREE.Vector3(0, -0.8, -1.0),
       rotation: new THREE.Euler(0, Math.PI / 2.1, 0),
       color: 0x00ff00,
     },
     {
       size: new THREE.Vector3(0.2, 0.5, 13),
-      position: new THREE.Vector3(0, -0.8, 1.9),
+      position: new THREE.Vector3(0, -0.8, 1.5),
       rotation: new THREE.Euler(0, Math.PI / 2.1, 0),
       color: 0x0000ff,
     },
     {
       size: new THREE.Vector3(0.2, 0.5, 6.0),
-      position: new THREE.Vector3(-6, -0.7, 1.0),
+      position: new THREE.Vector3(-5, -0.7, 1.0),
       rotation: new THREE.Euler(Math.PI / 50, -Math.PI / 40, 0),
       color: 0xffff00,
     },
