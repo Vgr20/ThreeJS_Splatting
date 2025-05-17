@@ -9,7 +9,8 @@ const ViewerGaneshismLobbyXR = () => {
     if (!containerRef.current) return;
 
     const viewer = new GaussianSplats3D.Viewer({
-      initialCameraLookAt: [-1.36147, 0.01385, -1.93057],
+      initialCameraLookAt: [1, 1, 1],
+      // initialCameraLookAt: [-1.36147, 0.01385, -1.93057],
       webXRMode: GaussianSplats3D.WebXRMode.AR,
       container: containerRef.current,
     });
@@ -19,9 +20,9 @@ const ViewerGaneshismLobbyXR = () => {
     viewer
       .addSplatScene(path, {
         scale: [1.0, 1.0, 1.0],
-        position: [0, 1, 0],
+        position: [-2, 0.5, 0],
         // rotation: [Math.PI, 0, 0],
-        rotation: [1, 0, 0, 0.2],
+        rotation: [1, 0, -0.1, 0.2],
       })
       .then(() => {
         viewer.start();
