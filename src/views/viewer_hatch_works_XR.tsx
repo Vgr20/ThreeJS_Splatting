@@ -14,14 +14,14 @@ const ViewerGaneshismLobbyXR = () => {
       container: containerRef.current,
     });
 
-    const path = "/splats/hatch_works.splat";
+    const path = "/splats/hatch_works.ksplat";
 
     viewer
       .addSplatScene(path, {
         scale: [1.0, 1.0, 1.0],
-        position: [5, 1.5, 0],
+        position: [-3, 0.1, -0.2],
         // rotation: [Math.PI, 0, 0],
-        rotation: [1, 0, 0, 0.2],
+        rotation: [1, 0, 0.1, 0],
       })
       .then(() => {
         viewer.start();

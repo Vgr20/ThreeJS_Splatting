@@ -13,14 +13,14 @@ const ViewerGaneshismLobbyXR = () => {
       container: containerRef.current,
     });
 
-    const path = "/splats/ganeshism.splat";
+    const path = "/splats/ganeshism.ksplat";
 
     viewer
       .addSplatScene(path, {
-        scale: [0.7, 0.7, 0.7],
-        position: [0, 1.5, 0],
+        scale: [0.6, 0.6, 0.6],
+        position: [0, 0.1, 0],
         // rotation: [Math.PI, 0, 0],
-        rotation: [1, 0, 0, 0.2],
+        rotation: [1, 0, 0, 0],
       })
       .then(() => {
         viewer.start();
