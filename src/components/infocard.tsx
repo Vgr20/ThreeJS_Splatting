@@ -23,6 +23,8 @@ interface InfoCardProps {
   buttonText?: string;
   buttonLink?: string;
   imageOnRight?: boolean;
+  buttonTextXR?: string;
+  buttonLinkXR?: string;
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -30,8 +32,10 @@ const InfoCard: React.FC<InfoCardProps> = ({
   description,
   imageSrc,
   imageAlt = "Project image",
-  buttonText = "View Prototype",
+  buttonText = "View in Browser",
+  buttonTextXR = "View in XR",
   buttonLink = "#",
+  buttonLinkXR = "#",
   imageOnRight = false,
 }) => {
   const cardRef = useRef(null);
@@ -97,12 +101,18 @@ const InfoCard: React.FC<InfoCardProps> = ({
         >
           <h2 className="text-3xl font-bold text-cyan-950">{title}</h2>
           <p className="text-gray-600 text-lg leading-relaxed">{description}</p>
-          <div className="pt-2">
+          <div className="flex flex-wrap gap-4 pt-2">
             <a
               href={buttonLink}
               className="inline-block px-6 py-2 bg-cyan-700 text-white rounded-lg shadow-cyan-800 shadow-md hover:shadow-lg hover:shadow-cyan-800 hover:bg-cyan-900 transition-colors"
             >
               {buttonText}
+            </a>
+            <a
+              href={buttonLinkXR}
+              className="inline-block px-6 py-2 bg-cyan-700 text-white rounded-lg shadow-cyan-800 shadow-md hover:shadow-lg hover:shadow-cyan-800 hover:bg-cyan-900 transition-colors"
+            >
+              {buttonTextXR}
             </a>
           </div>
         </div>

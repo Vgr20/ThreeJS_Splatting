@@ -1,8 +1,7 @@
-// ViewerEntcLobby.jsx
 import { useEffect, useRef } from "react";
 import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
 
-const ViewerEntcLobby = () => {
+const ViewerGaneshismLobbyXR = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -14,13 +13,14 @@ const ViewerEntcLobby = () => {
       container: containerRef.current,
     });
 
-    const path = "/splats/entc_lobby.ksplat";
+    const path = "/splats/ganeshism.splat";
 
     viewer
       .addSplatScene(path, {
         scale: [1.0, 1.0, 1.0],
-        position: [0, 0, 0],
-        rotation: [Math.PI, 0, 0],
+        position: [0, 1.5, 0],
+        // rotation: [Math.PI, 0, 0],
+        rotation: [1, 0, 0, 0.2],
       })
       .then(() => {
         viewer.start();
@@ -36,4 +36,4 @@ const ViewerEntcLobby = () => {
   return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
 };
 
-export default ViewerEntcLobby;
+export default ViewerGaneshismLobbyXR;
