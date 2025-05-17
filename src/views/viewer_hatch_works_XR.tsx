@@ -294,7 +294,7 @@ const ViewerGaneshismLobbyXR: React.FC = () => {
   // Function to update controller inputs
   const updateControllerInputs = (viewer: any) => {
     try {
-      const { left, right, leftGamepad, rightGamepad } = controllerRefs.current;
+      const { leftGamepad, rightGamepad } = controllerRefs.current;
 
       // Check if we have gamepad data
       if (!leftGamepad && !rightGamepad) {
