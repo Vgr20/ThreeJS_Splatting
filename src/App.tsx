@@ -7,6 +7,7 @@ import ViewerIndependenceSquare from "./views/viewer_independence_square";
 import ViewerHatchWorks from "./views/viewer_hatch_works";
 import ViewerGaneshism from "./views/viewer_ganeshism";
 import ViewerGaneshismLobby from "./views/viewer_ganeshism_lobby";
+import ViewerGaneshismLobbyXR from "./views/viewer_ganeshism_lobby_XR";
 
 export default function App() {
   return (
@@ -26,6 +27,11 @@ export default function App() {
           path="/viewer_ganeshism_lobby"
           element={<ViewerGaneshismLobby />}
         />
+        <Route
+          path="/viewer_ganeshism_lobby_XR"
+          element={<ViewerGaneshismLobbyXR />}
+        />
+
         {/* Add more routes as needed */}
       </Routes>
     </Router>

@@ -47,6 +47,16 @@ export default function Home() {
       buttonText: "View Prototype",
       buttonLink: "/viewer_ganeshism_lobby",
     },
+    {
+      id: 5,
+      title: "Ganeshism Gallery Lobby - XR",
+      description:
+        "Enter the Mobitel Lab — a dynamic ecosystem of technology, ideas, and transformation. This high-performance computing space has witnessed countless student breakthroughs, prototypes, and problem-solving marathons. Equipped with cutting-edge hardware and a forward-thinking atmosphere, the lab is more than a room — it’s a launchpad for the next generation of digital pioneers",
+      imageSrc: "/thumbnails/ganeshism_lobby.JPG", // Replace with your actual image path
+      imageOnRight: false,
+      buttonText: "View Prototype",
+      buttonLink: "/viewer_ganeshism_lobby_XR",
+    },
 
     // Add more cards as needed
   ];
