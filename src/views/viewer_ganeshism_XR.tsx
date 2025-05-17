@@ -17,7 +17,7 @@ const ViewerGaneshismLobbyXR = () => {
 
     viewer
       .addSplatScene(path, {
-        scale: [1.0, 1.0, 1.0],
+        scale: [0.7, 0.7, 0.7],
         position: [0, 1.5, 0],
         // rotation: [Math.PI, 0, 0],
         rotation: [1, 0, 0, 0.2],
