@@ -11,11 +11,11 @@ const ViewerGaneshismLobbyXR = () => {
     const viewer = new GaussianSplats3D.Viewer({
       initialCameraLookAt: [1, 1, 1],
       // initialCameraLookAt: [-1.36147, 0.01385, -1.93057],
-      webXRMode: GaussianSplats3D.WebXRMode.VR,
-      webXRSessionInit: {
-        requiredFeatures: ["bounded-floor"], // Try also "bounded-floor"
-        optionalFeatures: ["hit-test", "light-estimation"], // optional
-      },
+      webXRMode: GaussianSplats3D.WebXRMode.AR,
+      // webXRSessionInit: {
+      //   requiredFeatures: ["bounded-floor"], // Try also "bounded-floor"
+      //   optionalFeatures: ["hit-test", "light-estimation"], // optional
+      // },
       container: containerRef.current,
     });
 
