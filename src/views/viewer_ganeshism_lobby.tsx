@@ -188,6 +188,366 @@
 
 // THIS CODE INCLUDES UI ELEMENT NAVIGATION AND LOOKING AROUNG CONTROLS
 
+// import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
+// import * as THREE from "three";
+// import { useEffect, useRef } from "react";
+// import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls";
+// import { createBoxColliders } from "./ganeshism_lobby_colliders";
+// import * as CANNON from "cannon-es";
+
+// function ViewerGaneshismLobby() {
+//   const containerRef = useRef<HTMLDivElement | null>(null);
+//   const leftArrowRefs = {
+//     w: useRef<HTMLDivElement | null>(null),
+//     a: useRef<HTMLDivElement | null>(null),
+//     s: useRef<HTMLDivElement | null>(null),
+//     d: useRef<HTMLDivElement | null>(null),
+//   };
+//   const rightLookRef = useRef<HTMLDivElement>(null);
+
+//   // Navigation function - this handles the redirect to another scene
+//   const navigateToNextScene = () => {
+//     // Option 1: Simple redirect using window.location
+//     window.location.href = "/viewer_independence_square";
+//   };
+//   const navigateToPrevScene = () => {
+//     // Option 1: Simple redirect using window.location
+//     window.location.href = "/viewer_ganeshism";
+//   };
+//   useEffect(() => {
+//     const keys: Record<string, boolean> = {};
+//     if (!containerRef.current) return;
+
+//     const renderWidth = window.innerWidth;
+//     const renderHeight = window.innerHeight;
+//     const rootElement = containerRef.current;
+//     rootElement.style.width = renderWidth + "px";
+//     rootElement.style.height = renderHeight + "px";
+
+//     const camera = new THREE.PerspectiveCamera(
+//       65,
+//       renderWidth / renderHeight,
+//       0.1,
+//       500
+//     );
+//     camera.position.set(2, 1.0, 2);
+//     camera.up.set(0, 1, 0);
+//     camera.lookAt(new THREE.Vector3(-1.36147, 0.01385, -1.93057));
+
+//     const viewer = new GaussianSplats3D.Viewer({
+//       cameraUp: [0, 1, 0],
+//       useBuiltInControls: false,
+//       camera: camera,
+//       rootElement: rootElement,
+//     });
+
+//     const world = new CANNON.World();
+//     world.gravity.set(0, 0, 0);
+
+//     const capsuleRadius = 0.25;
+//     const capsuleHeight = 1.5;
+//     const playerBody = new CANNON.Body({
+//       mass: 1,
+//       fixedRotation: true,
+//       position: new CANNON.Vec3(2, 1.0, 2),
+//       shape: new CANNON.Cylinder(
+//         capsuleRadius,
+//         capsuleRadius,
+//         capsuleHeight,
+//         8
+//       ),
+//     });
+//     world.addBody(playerBody);
+
+//     viewer
+//       .addSplatScene("/splats/ganeshism_lobby.splat", {
+//         splatAlphaRemovalThreshold: 5,
+//         showLoadingUI: true,
+//         position: [0, 1.5, 0],
+//         rotation: [1, 0, 0, 0.2],
+//         scale: [1, 1, 1],
+//       })
+//       .then(() => {
+//         const domElement = viewer.renderer.domElement;
+//         const colliders = createBoxColliders();
+//         for (const { mesh, body } of colliders) {
+//           viewer.threeScene.add(mesh);
+//           world.addBody(body);
+//         }
+
+//         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+//         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+//         directionalLight.position.set(1, 2, 3);
+//         viewer.threeScene.add(ambientLight);
+//         viewer.threeScene.add(directionalLight);
+
+//         const controls = new PointerLockControls(camera, domElement);
+
+//         const moveDir = new THREE.Vector3();
+//         const moveSpeed = 3;
+
+//         document.addEventListener(
+//           "keydown",
+//           (e) => (keys[e.key.toLowerCase()] = true)
+//         );
+//         document.addEventListener(
+//           "keyup",
+//           (e) => (keys[e.key.toLowerCase()] = false)
+//         );
+
+//         const simulateKeyHold = (
+//           key: string,
+//           ref: React.RefObject<HTMLDivElement | null>
+//         ) => {
+//           const element = ref.current;
+//           if (!element) return;
+
+//           let interval: ReturnType<typeof setInterval>;
+//           element.addEventListener("mousedown", () => {
+//             keys[key] = true;
+//             interval = setInterval(() => (keys[key] = true), 100);
+//           });
+//           element.addEventListener("mouseup", () => {
+//             keys[key] = false;
+//             clearInterval(interval);
+//           });
+//           element.addEventListener("mouseleave", () => {
+//             keys[key] = false;
+//             clearInterval(interval);
+//           });
+//         };
+
+//         Object.entries(leftArrowRefs).forEach(([key, ref]) =>
+//           simulateKeyHold(key, ref)
+//         );
+
+//         if (rightLookRef.current) {
+//           let dragging = false;
+//           let prevX = 0;
+//           let prevY = 0;
+
+//           rightLookRef.current.addEventListener("mousedown", (e) => {
+//             dragging = true;
+//             prevX = e.clientX;
+//             prevY = e.clientY;
+//           });
+
+//           rightLookRef.current.addEventListener(
+//             "mouseup",
+//             () => (dragging = false)
+//           );
+//           rightLookRef.current.addEventListener(
+//             "mouseleave",
+//             () => (dragging = false)
+//           );
+
+//           rightLookRef.current.addEventListener("mousemove", (e) => {
+//             if (!dragging) return;
+//             const deltaX = e.clientX - prevX;
+//             const deltaY = e.clientY - prevY;
+//             prevX = e.clientX;
+//             prevY = e.clientY;
+
+//             const yaw = deltaX * 0.002;
+//             const pitch = deltaY * 0.002;
+
+//             const object = controls.getObject();
+//             object.rotation.y -= yaw;
+//             const maxPitch = Math.PI / 2;
+//             const minPitch = -Math.PI / 2;
+//             object.rotation.x = THREE.MathUtils.clamp(
+//               object.rotation.x - pitch,
+//               minPitch,
+//               maxPitch
+//             );
+//           });
+//         }
+
+//         const fixedTimeStep = 1 / 60;
+//         let lastTime = performance.now() / 1000;
+//         let accumulator = 0;
+
+//         function animate() {
+//           const currentTime = performance.now() / 1000;
+//           const deltaTime = currentTime - lastTime;
+//           lastTime = currentTime;
+//           accumulator += deltaTime;
+
+//           const forward = new THREE.Vector3();
+//           const right = new THREE.Vector3();
+//           camera.getWorldDirection(forward);
+//           forward.y = 0;
+//           forward.normalize();
+//           right.crossVectors(camera.up, forward).normalize();
+
+//           moveDir.set(0, 0, 0);
+//           if (keys["w"]) moveDir.add(forward);
+//           if (keys["s"]) moveDir.sub(forward);
+//           if (keys["a"]) moveDir.add(right);
+//           if (keys["d"]) moveDir.sub(right);
+
+//           moveDir.normalize().multiplyScalar(moveSpeed);
+//           playerBody.velocity.x = moveDir.x;
+//           playerBody.velocity.z = moveDir.z;
+//           playerBody.velocity.y = moveDir.y;
+
+//           while (accumulator >= fixedTimeStep) {
+//             world.step(fixedTimeStep);
+//             accumulator -= fixedTimeStep;
+//           }
+
+//           const pos = playerBody.position;
+//           camera.position.set(pos.x, pos.y, pos.z);
+
+//           viewer.update();
+//           viewer.render();
+//           requestAnimationFrame(animate);
+//         }
+
+//         animate();
+//       });
+
+//     return () => viewer?.dispose();
+//   }, []);
+
+//   return (
+//     <div
+//       ref={containerRef}
+//       style={{ width: "100%", height: "100vh", position: "relative" }}
+//     >
+//       <button
+//         onClick={navigateToPrevScene}
+//         style={{
+//           position: "absolute",
+//           top: "20px",
+//           left: "20px",
+//           padding: "12px 20px",
+//           backgroundColor: "rgba(0, 0, 0, 0.7)",
+//           color: "white",
+//           border: "2px solid rgba(255, 255, 255, 0.3)",
+//           borderRadius: "8px",
+//           fontSize: "16px",
+//           fontWeight: "bold",
+//           cursor: "pointer",
+//           userSelect: "none",
+//           zIndex: 1000, // Ensures the button appears above other elements
+//           transition: "all 0.3s ease", // Smooth hover effect
+//         }}
+//         onMouseEnter={(e) => {
+//           // Hover effect - makes button more visible when mouse is over it
+//           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+//           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
+//         }}
+//         onMouseLeave={(e) => {
+//           // Return to normal state when mouse leaves
+//           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+//           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
+//         }}
+//       >
+//         Change to Previous Scene
+//       </button>
+//       <button
+//         onClick={navigateToNextScene}
+//         style={{
+//           position: "absolute",
+//           top: "20px",
+//           right: "20px",
+//           padding: "12px 20px",
+//           backgroundColor: "rgba(0, 0, 0, 0.7)",
+//           color: "white",
+//           border: "2px solid rgba(255, 255, 255, 0.3)",
+//           borderRadius: "8px",
+//           fontSize: "16px",
+//           fontWeight: "bold",
+//           cursor: "pointer",
+//           userSelect: "none",
+//           zIndex: 1000, // Ensures the button appears above other elements
+//           transition: "all 0.3s ease", // Smooth hover effect
+//         }}
+//         onMouseEnter={(e) => {
+//           // Hover effect - makes button more visible when mouse is over it
+//           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+//           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
+//         }}
+//         onMouseLeave={(e) => {
+//           // Return to normal state when mouse leaves
+//           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+//           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
+//         }}
+//       >
+//         Change to next Scene
+//       </button>
+
+//       {(["w", "a", "s", "d"] as const).map((key) => {
+//         // Map each key to its corresponding arrow symbol
+//         const getArrowSymbol = (k: string) => {
+//           switch (k) {
+//             case "w":
+//               return "^"; // Up arrow
+//             case "a":
+//               return "<"; // Left arrow
+//             case "s":
+//               return "v"; // Down arrow
+//             case "d":
+//               return ">"; // Right arrow
+//             default:
+//               return k.toUpperCase();
+//           }
+//         };
+
+//         return (
+//           <div
+//             key={key}
+//             ref={leftArrowRefs[key]}
+//             style={{
+//               position: "absolute",
+//               bottom: key === "s" ? 20 : key === "w" ? 100 : 60,
+//               left: key === "a" ? 20 : key === "d" ? 100 : 60,
+//               width: 50,
+//               height: 50,
+//               backgroundColor: "rgba(255,255,255,0.4)",
+//               borderRadius: "50%",
+//               display: "flex",
+//               justifyContent: "center",
+//               alignItems: "center",
+//               fontSize: "24px", // Increased font size for better arrow visibility
+//               fontWeight: "bold", // Make arrows more prominent
+//               cursor: "pointer",
+//               userSelect: "none",
+//             }}
+//           >
+//             {getArrowSymbol(key)}
+//           </div>
+//         );
+//       })}
+
+//       <div
+//         ref={rightLookRef}
+//         style={{
+//           position: "absolute",
+//           bottom: "20px",
+//           right: "20px",
+//           width: "320px",
+//           height: "320px",
+//           backgroundColor: "rgba(0, 0, 0, 0.5)",
+//           color: "white",
+//           fontSize: "2em",
+//           textAlign: "center",
+//           lineHeight: "60px",
+//           cursor: "pointer",
+//           userSelect: "none",
+//         }}
+//       >
+//         Drag to look
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ViewerGaneshismLobby;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
 import * as THREE from "three";
 import { useEffect, useRef } from "react";
@@ -214,6 +574,7 @@ function ViewerGaneshismLobby() {
     // Option 1: Simple redirect using window.location
     window.location.href = "/viewer_ganeshism";
   };
+
   useEffect(() => {
     const keys: Record<string, boolean> = {};
     if (!containerRef.current) return;
@@ -295,6 +656,7 @@ function ViewerGaneshismLobby() {
           (e) => (keys[e.key.toLowerCase()] = false)
         );
 
+        // UPDATED: Mobile and desktop compatible key simulation
         const simulateKeyHold = (
           key: string,
           ref: React.RefObject<HTMLDivElement | null>
@@ -303,50 +665,83 @@ function ViewerGaneshismLobby() {
           if (!element) return;
 
           let interval: ReturnType<typeof setInterval>;
-          element.addEventListener("mousedown", () => {
+
+          // Function to start key simulation
+          const startKeyHold = (e: Event) => {
+            e.preventDefault(); // Prevent default touch behavior
             keys[key] = true;
             interval = setInterval(() => (keys[key] = true), 100);
-          });
-          element.addEventListener("mouseup", () => {
+          };
+
+          // Function to stop key simulation
+          const stopKeyHold = (e: Event) => {
+            e.preventDefault(); // Prevent default touch behavior
             keys[key] = false;
             clearInterval(interval);
+          };
+
+          // Mouse events (for desktop)
+          element.addEventListener("mousedown", startKeyHold);
+          element.addEventListener("mouseup", stopKeyHold);
+          element.addEventListener("mouseleave", stopKeyHold);
+
+          // Touch events (for mobile)
+          element.addEventListener("touchstart", startKeyHold, {
+            passive: false,
           });
-          element.addEventListener("mouseleave", () => {
-            keys[key] = false;
-            clearInterval(interval);
+          element.addEventListener("touchend", stopKeyHold, { passive: false });
+          element.addEventListener("touchcancel", stopKeyHold, {
+            passive: false,
           });
         };
 
+        // Apply the mobile-compatible key simulation to all movement buttons
         Object.entries(leftArrowRefs).forEach(([key, ref]) =>
           simulateKeyHold(key, ref)
         );
 
+        // UPDATED: Mobile and desktop compatible look controls
         if (rightLookRef.current) {
           let dragging = false;
           let prevX = 0;
           let prevY = 0;
 
-          rightLookRef.current.addEventListener("mousedown", (e) => {
+          // Helper function to get coordinates from mouse or touch event
+          const getEventCoordinates = (e: MouseEvent | TouchEvent) => {
+            if (e instanceof MouseEvent) {
+              return { x: e.clientX, y: e.clientY };
+            } else {
+              // For touch events, use the first touch point
+              const touch = e.touches[0] || e.changedTouches[0];
+              return { x: touch.clientX, y: touch.clientY };
+            }
+          };
+
+          // Start dragging function
+          const startDrag = (e: MouseEvent | TouchEvent) => {
+            e.preventDefault();
             dragging = true;
-            prevX = e.clientX;
-            prevY = e.clientY;
-          });
+            const coords = getEventCoordinates(e);
+            prevX = coords.x;
+            prevY = coords.y;
+          };
 
-          rightLookRef.current.addEventListener(
-            "mouseup",
-            () => (dragging = false)
-          );
-          rightLookRef.current.addEventListener(
-            "mouseleave",
-            () => (dragging = false)
-          );
+          // Stop dragging function
+          const stopDrag = (e: MouseEvent | TouchEvent) => {
+            e.preventDefault();
+            dragging = false;
+          };
 
-          rightLookRef.current.addEventListener("mousemove", (e) => {
+          // Handle drag movement
+          const handleDrag = (e: MouseEvent | TouchEvent) => {
             if (!dragging) return;
-            const deltaX = e.clientX - prevX;
-            const deltaY = e.clientY - prevY;
-            prevX = e.clientX;
-            prevY = e.clientY;
+            e.preventDefault();
+
+            const coords = getEventCoordinates(e);
+            const deltaX = coords.x - prevX;
+            const deltaY = coords.y - prevY;
+            prevX = coords.x;
+            prevY = coords.y;
 
             const yaw = deltaX * 0.002;
             const pitch = deltaY * 0.002;
@@ -360,6 +755,26 @@ function ViewerGaneshismLobby() {
               minPitch,
               maxPitch
             );
+          };
+
+          // Mouse events (for desktop)
+          rightLookRef.current.addEventListener("mousedown", startDrag);
+          rightLookRef.current.addEventListener("mouseup", stopDrag);
+          rightLookRef.current.addEventListener("mouseleave", stopDrag);
+          rightLookRef.current.addEventListener("mousemove", handleDrag);
+
+          // Touch events (for mobile)
+          rightLookRef.current.addEventListener("touchstart", startDrag, {
+            passive: false,
+          });
+          rightLookRef.current.addEventListener("touchend", stopDrag, {
+            passive: false,
+          });
+          rightLookRef.current.addEventListener("touchcancel", stopDrag, {
+            passive: false,
+          });
+          rightLookRef.current.addEventListener("touchmove", handleDrag, {
+            passive: false,
           });
         }
 
@@ -430,16 +845,14 @@ function ViewerGaneshismLobby() {
           fontWeight: "bold",
           cursor: "pointer",
           userSelect: "none",
-          zIndex: 1000, // Ensures the button appears above other elements
-          transition: "all 0.3s ease", // Smooth hover effect
+          zIndex: 1000,
+          transition: "all 0.3s ease",
         }}
         onMouseEnter={(e) => {
-          // Hover effect - makes button more visible when mouse is over it
           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
         }}
         onMouseLeave={(e) => {
-          // Return to normal state when mouse leaves
           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
         }}
@@ -461,16 +874,14 @@ function ViewerGaneshismLobby() {
           fontWeight: "bold",
           cursor: "pointer",
           userSelect: "none",
-          zIndex: 1000, // Ensures the button appears above other elements
-          transition: "all 0.3s ease", // Smooth hover effect
+          zIndex: 1000,
+          transition: "all 0.3s ease",
         }}
         onMouseEnter={(e) => {
-          // Hover effect - makes button more visible when mouse is over it
           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
         }}
         onMouseLeave={(e) => {
-          // Return to normal state when mouse leaves
           e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
         }}
@@ -478,18 +889,18 @@ function ViewerGaneshismLobby() {
         Change to next Scene
       </button>
 
+      {/* UPDATED: Enhanced mobile navigation buttons */}
       {(["w", "a", "s", "d"] as const).map((key) => {
-        // Map each key to its corresponding arrow symbol
         const getArrowSymbol = (k: string) => {
           switch (k) {
             case "w":
-              return "^"; // Up arrow
+              return "^";
             case "a":
-              return "<"; // Left arrow
+              return "<";
             case "s":
-              return "v"; // Down arrow
+              return "v";
             case "d":
-              return ">"; // Right arrow
+              return ">";
             default:
               return k.toUpperCase();
           }
@@ -510,10 +921,14 @@ function ViewerGaneshismLobby() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              fontSize: "24px", // Increased font size for better arrow visibility
-              fontWeight: "bold", // Make arrows more prominent
+              fontSize: "24px",
+              fontWeight: "bold",
               cursor: "pointer",
               userSelect: "none",
+              // Enhanced mobile touch support
+              touchAction: "none", // Prevents default touch behaviors
+              WebkitUserSelect: "none", // Prevents text selection on iOS
+              WebkitTouchCallout: "none", // Prevents callout on iOS
             }}
           >
             {getArrowSymbol(key)}
@@ -521,6 +936,7 @@ function ViewerGaneshismLobby() {
         );
       })}
 
+      {/* UPDATED: Enhanced mobile look control */}
       <div
         ref={rightLookRef}
         style={{
@@ -536,6 +952,10 @@ function ViewerGaneshismLobby() {
           lineHeight: "60px",
           cursor: "pointer",
           userSelect: "none",
+          // Enhanced mobile touch support
+          touchAction: "none", // Prevents default touch behaviors like scrolling
+          WebkitUserSelect: "none", // Prevents text selection on iOS
+          WebkitTouchCallout: "none", // Prevents callout on iOS
         }}
       >
         Drag to look
