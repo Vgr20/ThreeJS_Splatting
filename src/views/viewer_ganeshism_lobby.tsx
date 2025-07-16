@@ -857,7 +857,7 @@ function ViewerGaneshismLobby() {
           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
         }}
       >
-        Change to Previous Scene
+        Change to Ganeshism Art Gallery
       </button>
       <button
         onClick={navigateToNextScene}
@@ -886,7 +886,7 @@ function ViewerGaneshismLobby() {
           e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
         }}
       >
-        Change to next Scene
+        Change to Goldisands Suite
       </button>
 
       {/* UPDATED: Enhanced mobile navigation buttons */}
@@ -943,13 +943,13 @@ function ViewerGaneshismLobby() {
           position: "absolute",
           bottom: "5vh",
           right: "5vw",
-          width: "10vw",
-          height: "10vw",
+          width: "20vw",
+          height: "20vw",
           maxWidth: "320px",
           maxHeight: "320px",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           color: "white",
-          fontSize: "2em",
+          fontSize: "1.5em",
           textAlign: "center",
           lineHeight: "60px",
           cursor: "pointer",
