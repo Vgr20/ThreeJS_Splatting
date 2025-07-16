@@ -941,10 +941,12 @@ function ViewerGaneshismLobby() {
         ref={rightLookRef}
         style={{
           position: "absolute",
-          bottom: "20px",
-          right: "20px",
-          width: "320px",
-          height: "320px",
+          bottom: "5vh",
+          right: "5vw",
+          width: "30vw",
+          height: "30vw",
+          maxWidth: "320px",
+          maxHeight: "320px",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           color: "white",
           fontSize: "2em",
@@ -952,6 +954,9 @@ function ViewerGaneshismLobby() {
           lineHeight: "60px",
           cursor: "pointer",
           userSelect: "none",
+          borderRadius: "8px",
+          border: "2px solid rgba(255, 255, 255, 0.3)",
+          transition: "all 0.3s ease",
           // Enhanced mobile touch support
           touchAction: "none", // Prevents default touch behaviors like scrolling
           WebkitUserSelect: "none", // Prevents text selection on iOS
