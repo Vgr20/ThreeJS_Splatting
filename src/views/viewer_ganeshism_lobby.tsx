@@ -568,7 +568,7 @@ function ViewerGaneshismLobby() {
   // Navigation function - this handles the redirect to another scene
   const navigateToNextScene = () => {
     // Option 1: Simple redirect using window.location
-    window.location.href = "/viewer_independence_square";
+    window.location.href = "/viewer_goldisands";
   };
   const navigateToPrevScene = () => {
     // Option 1: Simple redirect using window.location

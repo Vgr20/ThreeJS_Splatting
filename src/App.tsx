@@ -11,6 +11,8 @@ import ViewerGaneshismLobbyXR from "./views/viewer_ganeshism_lobby_XR";
 import ViewerHatchWorksXR from "./views/viewer_hatch_works_XR";
 import ViewerIndependenceSquareXR from "./views/viewer_independence_square_XR";
 import ViewerGaneshismXR from "./views/viewer_ganeshism_XR";
+import ViewerGoldisands from "./views/viewer_goldisands";
+import ViewerGoldisandsXR from "./views/viewer_goldisands_XR";
 
 export default function App() {
   return (
@@ -40,6 +42,8 @@ export default function App() {
           element={<ViewerIndependenceSquareXR />}
         />
         <Route path="/viewer_ganeshism_XR" element={<ViewerGaneshismXR />} />
+        <Route path="/viewer_goldisands" element={<ViewerGoldisands />} />
+        <Route path="/viewer_goldisands_XR" element={<ViewerGoldisandsXR />} />
 
         {/* Add more routes as needed */}
       </Routes>

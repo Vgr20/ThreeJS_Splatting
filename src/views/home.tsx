@@ -47,6 +47,16 @@ export default function Home() {
       buttonLink: "/viewer_ganeshism_lobby",
       buttonLinkXR: "/viewer_ganeshism_lobby_XR",
     },
+    {
+      id: 5,
+      title: "Goldisands Suite",
+      description:
+        "A calm and elegant space, the Goldisands Suite is designed for relaxation and inspiration. With its serene ambiance, this suite is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+      imageSrc: "/thumbnails/goldisands.JPG", // Replace with your actual image path
+      imageOnRight: true,
+      buttonLink: "/viewer_goldisands",
+      buttonLinkXR: "/viewer_goldisands_XR", // No XR version available
+    },
     // Add more cards as needed
   ];
 
