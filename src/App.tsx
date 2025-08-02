@@ -13,6 +13,8 @@ import ViewerIndependenceSquareXR from "./views/viewer_independence_square_XR";
 import ViewerGaneshismXR from "./views/viewer_ganeshism_XR";
 import ViewerGoldisands from "./views/viewer_goldisands";
 import ViewerGoldisandsXR from "./views/viewer_goldisands_XR";
+import ViewerGoldisandsDeluxeRoom from "./views/viewer_goldisands_deluxe_room";
+import ViewerGoldisandsDeluxeRoomXR from "./views/viewer_goldisands_deluxe_room_XR";
 
 export default function App() {
   return (
@@ -44,6 +46,9 @@ export default function App() {
         <Route path="/viewer_ganeshism_XR" element={<ViewerGaneshismXR />} />
         <Route path="/viewer_goldisands" element={<ViewerGoldisands />} />
         <Route path="/viewer_goldisands_XR" element={<ViewerGoldisandsXR />} />
+
+        <Route path="/viewer_goldisands_deluxe_room" element={<ViewerGoldisandsDeluxeRoom />} />
+        <Route path="/viewer_goldisands_deluxe_room_XR" element={<ViewerGoldisandsDeluxeRoomXR />} />
 
         {/* Add more routes as needed */}
       </Routes>
