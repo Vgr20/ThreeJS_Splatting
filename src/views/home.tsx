@@ -63,9 +63,19 @@ export default function Home() {
       description:
         "A calm and elegant space, the Goldisands Deluxe Room is designed for relaxation and inspiration. With its serene ambiance, this deluxe room is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
       imageSrc: "/thumbnails/goldisands_deluxe_room.JPG", // Replace with your actual image path
-      imageOnRight: true,
+      imageOnRight: false,
       buttonLink: "/viewer_goldisands_deluxe_room",
       buttonLinkXR: "/viewer_goldisands_deluxe_room_XR", // No XR version available
+    },
+    {
+      id: 7,
+      title: "Goldisands Spa",
+      description:
+        "A calm and elegant space, the Goldisands Deluxe Room is designed for relaxation and inspiration. With its serene ambiance, this deluxe room is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+      imageSrc: "/thumbnails/goldisands_spa_1.JPG", // Replace with your actual image path
+      imageOnRight: true,
+      buttonLink: "/viewer_goldisands_spa_1",
+      buttonLinkXR: "/viewer_goldisands_sp1_1_XR", // No XR version available
     },
     // Add more cards as needed
   ];
