@@ -27,7 +27,8 @@ function ViewerGoldisandsDeluxeRoom() {
       500
     );
     camera.position.copy(
-      new THREE.Vector3().fromArray([-0.15829, -0.08684, 0.948])
+    //   new THREE.Vector3().fromArray([-0.15829, -0.08684, 0.948])
+    new THREE.Vector3().fromArray([-0.15829, -0.4, 0.948])
     );
     camera.up = new THREE.Vector3().fromArray([0, 1, 0]).normalize();
     camera.lookAt(new THREE.Vector3().fromArray([-1.36147, 0.01385, -1.93057]));
