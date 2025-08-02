@@ -75,7 +75,7 @@ export default function Home() {
       imageSrc: "/thumbnails/goldisands_spa_1.JPG", // Replace with your actual image path
       imageOnRight: true,
       buttonLink: "/viewer_goldisands_spa_1",
-      buttonLinkXR: "/viewer_goldisands_sp1_1_XR", // No XR version available
+      buttonLinkXR: "/viewer_goldisands_spa_1_XR", // No XR version available
     },
     // Add more cards as needed
   ];
