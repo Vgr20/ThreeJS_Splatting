@@ -28,7 +28,7 @@ function ViewerGoldisandsDeluxeRoom() {
     );
     camera.position.copy(
     //   new THREE.Vector3().fromArray([-0.15829, -0.08684, 0.948])
-    new THREE.Vector3().fromArray([-0.15829, 2, 0.948])
+    new THREE.Vector3().fromArray([-0.15829, 0.5, 0.948])
     );
     camera.up = new THREE.Vector3().fromArray([0, 1, 0]).normalize();
     camera.lookAt(new THREE.Vector3().fromArray([-1.36147, 0.01385, -1.93057]));
@@ -49,7 +49,7 @@ function ViewerGoldisandsDeluxeRoom() {
     const playerBody = new CANNON.Body({
       mass: 1,
       fixedRotation: true,
-      position: new CANNON.Vec3(-0.15829, 2, 0.948),
+      position: new CANNON.Vec3(-0.15829, 0.5, 0.948),
       shape: new CANNON.Cylinder(
         capsuleRadius,
         capsuleRadius,
