@@ -67,7 +67,7 @@ function ViewerGoldisandsDeluxeRoom() {
         showLoadingUI: true,
         position: [0, 0.5, 0],
         // rotation: [1, 0, 0, 0],
-        rotation: [1, -Math.sin(Math.PI / 36), 0, 0],
+        rotation: [1, Math.sin(Math.PI / 72), 0, 0],
         scale: [1, 1, 1],
       })
       .then(() => {
