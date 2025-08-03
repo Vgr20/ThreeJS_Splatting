@@ -66,7 +66,7 @@ function ViewerGoldisandsDeluxeRoom() {
         splatAlphaRemovalThreshold: 5,
         showLoadingUI: true,
         position: [0, 0.5, 0],
-        rotation: [0.8, 0, 0, 0],
+        rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],
       })
       .then(() => {
