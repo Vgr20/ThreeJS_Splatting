@@ -15,8 +15,8 @@ import ViewerGoldisands from "./views/viewer_goldisands";
 import ViewerGoldisandsXR from "./views/viewer_goldisands_XR";
 import ViewerGoldisandsDeluxeRoom from "./views/viewer_goldisands_deluxe_room";
 import ViewerGoldisandsDeluxeRoomXR from "./views/viewer_goldisands_deluxe_room_XR";
-import ViewerGoldisandsSpa1 from "./views/viewer_goldisands_spa_1";
-import ViewerGoldisandsSpa1XR from "./views/viewer_goldisands_spa_1_XR";
+import ViewerGoldisandsOutdoorLobby from "./views/viewer_goldisands_outdoor_lobby";
+import ViewerGoldisandsOutdoorLobbyXR from "./views/viewer_goldisands_outdoor_lobby_XR";
 
 export default function App() {
   return (
@@ -52,8 +52,8 @@ export default function App() {
         <Route path="/viewer_goldisands_deluxe_room" element={<ViewerGoldisandsDeluxeRoom />} />
         <Route path="/viewer_goldisands_deluxe_room_XR" element={<ViewerGoldisandsDeluxeRoomXR />} />
 
-        <Route path="/viewer_goldisands_spa_1" element={<ViewerGoldisandsSpa1 />} />
-        <Route path="/viewer_goldisands_spa_1_XR" element={<ViewerGoldisandsSpa1XR />} />
+        <Route path="/viewer_goldisands_outdoor_lobby" element={<ViewerGoldisandsOutdoorLobby />} />
+        <Route path="/viewer_goldisands_outdoor_lobby_XR" element={<ViewerGoldisandsOutdoorLobbyXR />} />
 
         {/* Add more routes as needed */}
       </Routes>
