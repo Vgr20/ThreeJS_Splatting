@@ -31,7 +31,8 @@ function ViewerGoldisandsDeluxeRoom() {
     new THREE.Vector3().fromArray([-0.15829, 0.5, 0.948])
     );
     camera.up = new THREE.Vector3().fromArray([0, 1, 0]).normalize();
-    camera.lookAt(new THREE.Vector3().fromArray([-1.36147, 0.01385, -1.93057]));
+    // camera.lookAt(new THREE.Vector3().fromArray([-1.36147, 0.01385, -1.93057]));
+    camera.lookAt(new THREE.Vector3().fromArray([-1.36147, 0.5, -1.93057]));
 
     const viewer = new GaussianSplats3D.Viewer({
       cameraUp: [0, 1, 0],
@@ -65,7 +66,7 @@ function ViewerGoldisandsDeluxeRoom() {
         splatAlphaRemovalThreshold: 5,
         showLoadingUI: true,
         position: [0, 0.5, 0],
-        rotation: [0, 0, 0, 1],
+        rotation: [1, 0, 0, 0],
         scale: [1, 1, 1],
       })
       .then(() => {
