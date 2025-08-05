@@ -2,7 +2,7 @@ import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
 import * as THREE from "three";
 import { useEffect, useRef } from "react";
 import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls";
-// import { createBoxColliders } from "./ganeshism_colliders";
+import { createBoxColliders } from "./goldisands_outdoor_lobby_colliders";
 import * as CANNON from "cannon-es";
 
 function ViewerGoldisandsOutdoorLobby() {
@@ -73,11 +73,11 @@ function ViewerGoldisandsOutdoorLobby() {
         const domElement = viewer.renderer.domElement;
 
         // Add physical box colliders
-        // const colliders = createBoxColliders();
-        // for (const { mesh, body } of colliders) {
-        //   viewer.threeScene.add(mesh);
-        //   world.addBody(body);
-        // }
+        const colliders = createBoxColliders();
+        for (const { mesh, body } of colliders) {
+          viewer.threeScene.add(mesh);
+          world.addBody(body);
+        }
 
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
