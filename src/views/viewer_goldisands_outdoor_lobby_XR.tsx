@@ -17,7 +17,7 @@ const ViewerGoldisandsOutdoorLobbyXR = () => {
 
     viewer
       .addSplatScene(path, {
-        scale: [0.9, 0.9, 0.9],
+        scale: [1.2, 1.2, 1.2],
         position: [0, 0.3, 0],
         // rotation: [Math.PI, 0, 0],
         rotation: [1, 0, 0, 0],
