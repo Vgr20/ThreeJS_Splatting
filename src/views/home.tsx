@@ -47,36 +47,36 @@ export default function Home() {
       buttonLink: "/viewer_ganeshism_lobby",
       buttonLinkXR: "/viewer_ganeshism_lobby_XR",
     },
-    {
-      id: 5,
-      title: "Goldisands Suite",
-      description:
-        "A calm and elegant space, the Goldisands Suite is designed for relaxation and inspiration. With its serene ambiance, this suite is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
-      imageSrc: "/thumbnails/goldisands.JPG", // Replace with your actual image path
-      imageOnRight: true,
-      buttonLink: "/viewer_goldisands",
-      buttonLinkXR: "/viewer_goldisands_XR",
-    },
-    {
-      id: 6,
-      title: "Goldisands Deluxe Room",
-      description:
-        "A calm and elegant space, the Goldisands Deluxe Room is designed for relaxation and inspiration. With its serene ambiance, this deluxe room is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
-      imageSrc: "/thumbnails/goldisands_deluxe_room.JPG", // Replace with your actual image path
-      imageOnRight: false,
-      buttonLink: "/viewer_goldisands_deluxe_room",
-      buttonLinkXR: "/viewer_goldisands_deluxe_room_XR", // No XR version available
-    },
-    {
-      id: 7,
-      title: "Goldisands Outdoor Lobby",
-      description:
-        "A calm and elegant space, the Goldisands Outdoor Lobby is designed for relaxation and inspiration. With its serene ambiance, this Lobby area is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
-      imageSrc: "/thumbnails/goldisands_outdoor_lobby.JPG", // Replace with your actual image path
-      imageOnRight: true,
-      buttonLink: "/viewer_goldisands_outdoor_lobby",
-      buttonLinkXR: "/viewer_goldisands_outdoor_lobby_XR", // No XR version available
-    },
+    // {
+    //   id: 5,
+    //   title: "Goldisands Suite",
+    //   description:
+    //     "A calm and elegant space, the Goldisands Suite is designed for relaxation and inspiration. With its serene ambiance, this suite is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+    //   imageSrc: "/thumbnails/goldisands.JPG", // Replace with your actual image path
+    //   imageOnRight: true,
+    //   buttonLink: "/viewer_goldisands",
+    //   buttonLinkXR: "/viewer_goldisands_XR",
+    // },
+    // {
+    //   id: 6,
+    //   title: "Goldisands Deluxe Room",
+    //   description:
+    //     "A calm and elegant space, the Goldisands Deluxe Room is designed for relaxation and inspiration. With its serene ambiance, this deluxe room is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+    //   imageSrc: "/thumbnails/goldisands_deluxe_room.JPG", // Replace with your actual image path
+    //   imageOnRight: false,
+    //   buttonLink: "/viewer_goldisands_deluxe_room",
+    //   buttonLinkXR: "/viewer_goldisands_deluxe_room_XR", // No XR version available
+    // },
+    // {
+    //   id: 7,
+    //   title: "Goldisands Outdoor Lobby",
+    //   description:
+    //     "A calm and elegant space, the Goldisands Outdoor Lobby is designed for relaxation and inspiration. With its serene ambiance, this Lobby area is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+    //   imageSrc: "/thumbnails/goldisands_outdoor_lobby.JPG", // Replace with your actual image path
+    //   imageOnRight: true,
+    //   buttonLink: "/viewer_goldisands_outdoor_lobby",
+    //   buttonLinkXR: "/viewer_goldisands_outdoor_lobby_XR", // No XR version available
+    // },
     // Add more cards as needed
   ];
 
