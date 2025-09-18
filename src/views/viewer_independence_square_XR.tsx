@@ -14,7 +14,7 @@ const ViewerGaneshismLobbyXR = () => {
       container: containerRef.current,
     });
 
-    const path = "/splats/independence_square.splat";
+    const path = "/splats/independence_square.ksplat";
 
     viewer
       .addSplatScene(path, {
