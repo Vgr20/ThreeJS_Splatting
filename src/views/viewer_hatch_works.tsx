@@ -183,7 +183,7 @@ function ViewerHatchWorks() {
 
     // Step 2: Scene load
     viewer
-      .addSplatScene("/splats/hatch_works.splat", {
+      .addSplatScene("/splats/hatch_works.ksplat", {
         splatAlphaRemovalThreshold: 5,
         showLoadingUI: true,
         position: [0, 0, 0],

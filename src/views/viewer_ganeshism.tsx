@@ -55,7 +55,7 @@ function ViewerGaneshism() {
 
     // Step 2: Scene load
     viewer
-      .addSplatScene("/splats/ganeshism.splat", {
+      .addSplatScene("/splats/ganeshism.ksplat", {
         splatAlphaRemovalThreshold: 5,
         showLoadingUI: true,
         position: [0, 0, 0],
