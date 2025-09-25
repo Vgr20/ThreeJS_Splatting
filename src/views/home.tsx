@@ -17,66 +17,66 @@ export default function Home() {
       buttonLink: "/viewer_independence_square",
       buttonLinkXR: "/viewer_independence_square_XR",
     },
+    // {
+    //   id: 2,
+    //   title: "Hatch Works Auditorium",
+    //   description:
+    //     "Looking for a creative and well-equipped venue in the heart of Colombo? The Hatchery at Hatch Works offers a cozy, tiered-seating auditorium ideal for talks, screenings, workshops, or small events. With built-in projection facilities, and modern lighting, this space combines functionality with a casual, collaborative vibe. Perfect for teams, startups, and community meetups.",
+    //   imageSrc: "/thumbnails/hatch_works.JPG", // Replace with your actual image path
+    //   imageOnRight: false,
+    //   buttonLink: "/viewer_hatch_works",
+    //   buttonLinkXR: "/viewer_hatch_works_XR",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Ganeshism Studio Gallery",
+    //   description:
+    //     "Step into the Ganeshism Studio Gallery, a serene space dedicated to Indian spiritual art. This collection features deeply symbolic and inspirational works rooted in tradition, mindfulness, and devotion. Whether you’re visiting to admire the art or looking to order a meaningful piece, the gallery offers a peaceful setting to connect with the spirit of creativity and culture.",
+    //   imageSrc: "/thumbnails/ganeshism.JPG", // Replace with your actual image path
+    //   imageOnRight: true,
+    //   buttonLink: "/viewer_ganeshism",
+    //   buttonLinkXR: "/viewer_ganeshism_XR",
+    // },
+    // {
+    //   id: 4,
+    //   title: "Ganeshism Gallery Lobby",
+    //   description:
+    //     "A peaceful entry space surrounded by nature, the Ganeshism Gallery Lobby blends art and ambiance. With an indoor garden view, soft lighting, and a cozy living area, it offers a quiet setting where artwork gently comes to life — perfect for reflection or relaxed conversation.",
+    //   imageSrc: "/thumbnails/ganeshism_lobby.JPG", // Replace with your actual image path
+    //   imageOnRight: false,
+    //   buttonLink: "/viewer_ganeshism_lobby",
+    //   buttonLinkXR: "/viewer_ganeshism_lobby_XR",
+    // },
     {
       id: 2,
-      title: "Hatch Works Auditorium",
+      title: "Goldisands Suite",
       description:
-        "Looking for a creative and well-equipped venue in the heart of Colombo? The Hatchery at Hatch Works offers a cozy, tiered-seating auditorium ideal for talks, screenings, workshops, or small events. With built-in projection facilities, and modern lighting, this space combines functionality with a casual, collaborative vibe. Perfect for teams, startups, and community meetups.",
-      imageSrc: "/thumbnails/hatch_works.JPG", // Replace with your actual image path
+        "A calm and elegant space, the Goldisands Suite is designed for relaxation and inspiration. With its serene ambiance, this suite is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+      imageSrc: "/thumbnails/goldisands.JPG", // Replace with your actual image path
       imageOnRight: false,
-      buttonLink: "/viewer_hatch_works",
-      buttonLinkXR: "/viewer_hatch_works_XR",
+      buttonLink: "/viewer_goldisands",
+      buttonLinkXR: "/viewer_goldisands_XR",
     },
     {
       id: 3,
-      title: "Ganeshism Studio Gallery",
+      title: "Goldisands Deluxe Room",
       description:
-        "Step into the Ganeshism Studio Gallery, a serene space dedicated to Indian spiritual art. This collection features deeply symbolic and inspirational works rooted in tradition, mindfulness, and devotion. Whether you’re visiting to admire the art or looking to order a meaningful piece, the gallery offers a peaceful setting to connect with the spirit of creativity and culture.",
-      imageSrc: "/thumbnails/ganeshism.JPG", // Replace with your actual image path
+        "A calm and elegant space, the Goldisands Deluxe Room is designed for relaxation and inspiration. With its serene ambiance, this deluxe room is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+      imageSrc: "/thumbnails/goldisands_deluxe_room.JPG", // Replace with your actual image path
       imageOnRight: true,
-      buttonLink: "/viewer_ganeshism",
-      buttonLinkXR: "/viewer_ganeshism_XR",
+      buttonLink: "/viewer_goldisands_deluxe_room",
+      buttonLinkXR: "/viewer_goldisands_deluxe_room_XR", // No XR version available
     },
     {
       id: 4,
-      title: "Ganeshism Gallery Lobby",
+      title: "Goldisands Outdoor Lobby",
       description:
-        "A peaceful entry space surrounded by nature, the Ganeshism Gallery Lobby blends art and ambiance. With an indoor garden view, soft lighting, and a cozy living area, it offers a quiet setting where artwork gently comes to life — perfect for reflection or relaxed conversation.",
-      imageSrc: "/thumbnails/ganeshism_lobby.JPG", // Replace with your actual image path
+        "A calm and elegant space, the Goldisands Outdoor Lobby is designed for relaxation and inspiration. With its serene ambiance, this Lobby area is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
+      imageSrc: "/thumbnails/goldisands_outdoor_lobby.JPG", // Replace with your actual image path
       imageOnRight: false,
-      buttonLink: "/viewer_ganeshism_lobby",
-      buttonLinkXR: "/viewer_ganeshism_lobby_XR",
+      buttonLink: "/viewer_goldisands_outdoor_lobby",
+      buttonLinkXR: "/viewer_goldisands_outdoor_lobby_XR", // No XR version available
     },
-    // {
-    //   id: 5,
-    //   title: "Goldisands Suite",
-    //   description:
-    //     "A calm and elegant space, the Goldisands Suite is designed for relaxation and inspiration. With its serene ambiance, this suite is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
-    //   imageSrc: "/thumbnails/goldisands.JPG", // Replace with your actual image path
-    //   imageOnRight: true,
-    //   buttonLink: "/viewer_goldisands",
-    //   buttonLinkXR: "/viewer_goldisands_XR",
-    // },
-    // {
-    //   id: 6,
-    //   title: "Goldisands Deluxe Room",
-    //   description:
-    //     "A calm and elegant space, the Goldisands Deluxe Room is designed for relaxation and inspiration. With its serene ambiance, this deluxe room is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
-    //   imageSrc: "/thumbnails/goldisands_deluxe_room.JPG", // Replace with your actual image path
-    //   imageOnRight: false,
-    //   buttonLink: "/viewer_goldisands_deluxe_room",
-    //   buttonLinkXR: "/viewer_goldisands_deluxe_room_XR", // No XR version available
-    // },
-    // {
-    //   id: 7,
-    //   title: "Goldisands Outdoor Lobby",
-    //   description:
-    //     "A calm and elegant space, the Goldisands Outdoor Lobby is designed for relaxation and inspiration. With its serene ambiance, this Lobby area is perfect for quiet reflection on gatherings. The soft lighting and tasteful decor create a peaceful environment that invites you to unwind and connect with your thoughts.",
-    //   imageSrc: "/thumbnails/goldisands_outdoor_lobby.JPG", // Replace with your actual image path
-    //   imageOnRight: true,
-    //   buttonLink: "/viewer_goldisands_outdoor_lobby",
-    //   buttonLinkXR: "/viewer_goldisands_outdoor_lobby_XR", // No XR version available
-    // },
     // Add more cards as needed
   ];
 
